@@ -1,44 +1,64 @@
-# rokum.dev — Personal Kanban
+# rokum.dev
 
-Simple single-page Kanban app using Next.js and Google sign-in (NextAuth). Data is stored in the browser's `localStorage` per authenticated user (email).
+Monorepo for rokum.dev application with frontend and backend.
 
-Quick start
+## Structure
 
-1. Copy `.env.local.example` to `.env.local` and fill values (Google OAuth client, secret, NEXTAUTH_SECRET, allowed emails)
-
-```bash
-cp .env.local.example .env.local
-# edit .env.local
-npm install
-npm run dev
+```
+.
+├── frontend/     # Next.js frontend application
+├── backend/      # Backend API server
+└── package.json  # Root workspace configuration
 ```
 
-Notes
+## Prerequisites
 
-- Only emails listed in `ALLOWED_USERS` (comma-separated) can sign in.
-- Data is stored locally in the browser; for production you may want to add a server-side DB.
+- Node.js 18+
+- pnpm 8+
 
-Contributing
+## Getting Started
 
-- See `CONTRIBUTING.md` for branch workflow and PR rules. Use `.github/PULL_REQUEST_TEMPLATE.md` when creating PRs.
-- A helper script to create branches is available at `scripts/new-branch.sh`.
+### Install dependencies
 
-Deployment (Vercel)
+```bash
+pnpm install
+```
 
-Recommended: deploy the project to Vercel for easy hosting. Steps:
+### Development
 
-1. Sign in to https://vercel.com with your GitHub account and click "New Project" → import the `rokum-dev` repository.
-2. In the Vercel project settings, add the following Environment Variables (Production & Preview as needed):
+Run frontend and backend in development mode:
 
-   - `GOOGLE_CLIENT_ID` — Google OAuth client id
-   - `GOOGLE_CLIENT_SECRET` — Google OAuth client secret
-   - `NEXTAUTH_SECRET` — random secret (32 bytes hex)
-   - `NEXTAUTH_URL` — https://your-domain.vercel.app (or http://localhost:3000 for local)
-   - `ALLOWED_USERS` — comma-separated allowed emails
+```bash
+# Run both frontend and backend
+pnpm dev
 
-3. Deploy: Vercel will build and deploy automatically on push to `main` (or configured branch).
+# Or run individually
+pnpm dev:frontend
+pnpm dev:backend
+```
 
-Notes:
+### Build
 
-- Keep `.env.local` out of source control. Use Vercel UI to store production secrets.
-- If you want automatic previews for PRs, enable Preview Deployments in Vercel when importing the repo.
+```bash
+# Build all packages
+pnpm build
+
+# Or build individually
+pnpm build:frontend
+pnpm build:backend
+```
+
+### Testing
+
+```bash
+# Run all tests
+pnpm test
+
+# Run tests in CI mode
+pnpm test:ci
+```
+
+## Workspace Packages
+
+- `@rokum-dev/frontend` - Next.js frontend application
+- `@rokum-dev/backend` - Backend API server
