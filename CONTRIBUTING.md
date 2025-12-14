@@ -33,9 +33,11 @@ git checkout -b feat/your-feature-name
 - `scripts/new-branch.sh <branch-name>` を使うと自動で `main` を pull して新しいブランチを作成します。
 
 ## 安全対策: git フック
+
 このリポジトリにはローカルフックを用意しています。`scripts/install-hooks.sh` を実行すると、`.githooks/pre-push` が有効になり、`main` / `master` ブランチからの直接 push をブロックします。
 
 インストール:
+
 ```bash
 bash scripts/install-hooks.sh
 ```
