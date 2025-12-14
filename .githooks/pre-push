@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Prevent accidental pushes to `main` from local clones.
+# To override temporarily, set ALLOW_PUSH_MAIN=1
+
+branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
+if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
+  if [ "$ALLOW_PUSH_MAIN" != "1" ]; then
+    echo "Refusing to push from '$branch'." >&2
+    echo "Please create a feature branch from main: git switch main && git pull && git checkout -b feat/your-branch" >&2
+    echo "To allow a direct push temporarily, run: ALLOW_PUSH_MAIN=1 git push ... (not recommended)" >&2
+    exit 1
+  fi
+fi
+
+exit 0
