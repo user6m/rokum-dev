@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest",
+    "test:ci": "vitest --reporter=dot --coverage"
   },
   "dependencies": {
     "next": "13.5.4",
@@ -17,6 +19,10 @@
   "devDependencies": {
     "typescript": "5.3.3",
     "@types/react": "18.0.38",
-    "@types/node": "20.4.2"
+    "@types/node": "20.4.2",
+    "vitest": "^1.3.8",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "jsdom": "^22.1.0"
   }
 }
