@@ -2,6 +2,7 @@
   "name": "rokum-dev",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.15.0",
   "scripts": {
     "dev": "pnpm --filter @rokum-dev/frontend dev",
     "dev:frontend": "pnpm --filter @rokum-dev/frontend dev",
@@ -16,6 +17,6 @@
     "install:all": "pnpm install"
   },
   "devDependencies": {
-    "pnpm": "^8.0.0"
+    "pnpm": "^10.15.0"
   }
 }
